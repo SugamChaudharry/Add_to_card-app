@@ -28,10 +28,7 @@ onValue(shoppingListInDB, function(snapshot) {
         clearShoppingListEl()
         
         for (let i = 0; i < itemsArray.length; i++) {
-            let currentItem = itemsArray[i]
-            let currentItemID = currentItem[0]
-            let currentItemValue = currentItem[1]
-            
+            let currentItem = itemsArray[i]            
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
@@ -53,9 +50,9 @@ function appendItemToShoppingListEl(item) {
     
     let newEl = document.createElement("li")
     
-    newEl.textContent = itemValue
+    newEl.textContent = `${itemValue}`
     
-    newEl.addEventListener("click", function() {
+    newEl.addEventListener("dblclick", function() {
         let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
         
         remove(exactLocationOfItemInDB)
