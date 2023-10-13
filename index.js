@@ -2,8 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
-    databaseURL: "https://realtime-database-78f98-default-rtdb.asia-southeast1.firebasedatabase.app/"
-}
+    databaseURL: "https://add-to-card-database-default-rtdb.firebaseio.com/",
+};
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
@@ -13,9 +13,9 @@ const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
+
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    
     push(shoppingListInDB, inputValue)
     
     clearInputFieldEl()
